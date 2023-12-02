@@ -27,7 +27,7 @@ route.post('/config',
 )
 
 /* http://localhost:3500/HC/user/ */
-route.get('/',
+route.post('/login',
     user.logIn
 );
 

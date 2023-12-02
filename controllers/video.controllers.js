@@ -32,11 +32,14 @@ videoControllers.create = async (req, res, next) => {
 
 videoControllers.find = async (req, res, next) => {
     try {
-        const { id } = req.params;
+        const { id } = req.params
+        const page = parseInt(req.query.page) || 1;
+        const pageSize = parseInt(req.query.pageSize) || 8;
+        const skip = (page - 1) * pageSize;
 
         /* IF URL HAS NO ID -> RETURNS ALL VIDEOS */
         if (!id) {
-            const videos = await Video.find();
+            const videos = await Video.find().skip(skip).limit(pageSize);
 
             if (!videos) {
                 return Codes.code404;

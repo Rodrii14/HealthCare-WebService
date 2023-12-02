@@ -15,7 +15,7 @@ route.post('/',
     video.create
 );
 
-route.get(['/:id', '/'],
+route.get('/',
     idValidations,
     verifyRules,
     video.find

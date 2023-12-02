@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const database = require('./configuration/database.configuration');
 const mainRouter = require('./routes/index.router');
+const cors = require('cors')
 
 const app = express();
 database.connect();
@@ -13,7 +14,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser()); //Cookies
-
+app.use(cors());
 /* ROUTERS */
 
 app.use(express.static(path.join(__dirname, 'public')));
