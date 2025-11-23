@@ -1,13 +1,13 @@
 const express = require('express');
 const route = express.Router();
 
-//DATA CONTROLLERS IMPORTS
+// DATA CONTROLLERS IMPORTS
 const pressureControllers = require('../../controllers/content/pressure.controllers');
 
-//AUTHENTICATION IMPORTS
+// AUTHENTICATION IMPORTS
 const { authUser } = require('../../middlewares/auth.middlewares');
 
-//DATA VALIDATORS IMPORTS
+// DATA VALIDATORS IMPORTS
 const validationsRules = require('../../validators/rules.validators');
 const verifyRules = require('../../validators/index.validators');
 
