@@ -43,4 +43,22 @@ colesterolControllers.getColesterol = async (req, res, next) => {
     }
 }
 
+colesterolControllers.deleteColesterol = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const colesterol = await Colesterol.findOneAndDelete({ _id: id});
+
+        if (!colesterol) {
+            console.error("colesterolControllers.deleteColesterol: record not found for deletion");
+            return Codes.code404(res);
+        }
+
+        return res.status(200).json({ message: 'Deleted successfully' });
+    } catch (error) {
+        console.error(error);
+        return Codes.code500(res);
+    }
+}
+
 module.exports = colesterolControllers;

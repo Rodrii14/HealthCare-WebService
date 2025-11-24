@@ -24,4 +24,9 @@ route.get('/',
     glucoseControllers.getGlucose
 );
 
+route.delete('/:id',
+    authUser,
+    glucoseControllers.deleteGlucose
+);
+
 module.exports = route;

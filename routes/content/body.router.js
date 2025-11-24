@@ -24,4 +24,9 @@ route.get('/',
     bodyControllers.getBody
 );
 
+route.delete('/:id',
+    authUser,
+    bodyControllers.deleteBody
+);
+
 module.exports = route;

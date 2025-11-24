@@ -24,4 +24,9 @@ route.get('/',
     muscularControllers.getMuscular
 );
 
+route.delete('/:id',
+    authUser,
+    muscularControllers.deleteMuscular
+);
+
 module.exports = route;

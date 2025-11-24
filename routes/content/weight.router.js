@@ -24,4 +24,9 @@ route.get('/',
     weightControllers.getWeight
 );
 
+route.delete('/:id',
+    authUser,
+    weightControllers.deleteWeight
+);
+
 module.exports = route;
