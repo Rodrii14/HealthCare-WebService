@@ -24,4 +24,9 @@ route.get('/',
     pressureControllers.getPressure
 );
 
+route.delete('/:id',
+    authUser,
+    pressureControllers.deletePressure
+);
+
 module.exports = route;

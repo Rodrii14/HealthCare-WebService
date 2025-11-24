@@ -42,4 +42,21 @@ glucoseControllers.getGlucose = async (req, res, next) => {
     }
 }
 
+glucoseControllers.deleteGlucose = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const glucose = await Glucose.findOneAndDelete({ _id: id });
+
+        if (!glucose) {
+            console.error("glucoseControllers.deleteGlucose: record not found for deletion");
+            return Codes.code404(res);
+        }
+        return res.status(200).json({ message: "Deleted successfully" });
+    } catch (error) {
+        console.error(error);
+        return Codes.code500(res);
+    }
+};
+
 module.exports = glucoseControllers;

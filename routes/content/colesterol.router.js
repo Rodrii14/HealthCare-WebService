@@ -24,4 +24,9 @@ route.get('/',
     colesterolControllers.getColesterol
 );
 
+route.delete('/:id',
+    authUser,
+    colesterolControllers.deleteColesterol
+);
+
 module.exports = route;
